@@ -81,6 +81,11 @@ Actor.destroy_all
 Role.destroy_all
 
 # Generate models and tables, according to the domain model.
+# generated using rails generate model ModelName for all 4 tables
+
+# Insert data into the database that reflects the sample data shown above.
+# Do not use hard-coded foreign key IDs.
+# TODO!
 
 # check that we start with no Studio data
 puts "studios: #{Studio.all.count}"
@@ -280,9 +285,6 @@ new_role.save
 # check that we roles were inserted correctly - should be 15
 puts "roles: #{Role.all.count}"
 
-# Insert data into the database that reflects the sample data shown above.
-# Do not use hard-coded foreign key IDs.
-# TODO!
 
 # Prints a header for the movies output
 puts "Movies"
