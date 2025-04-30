@@ -92,6 +92,194 @@ new_studio.save
 # check that studio was added
 puts "studios: #{Studio.all.count}"
 
+# movie data from hw 1
+# INSERT INTO movies (title, year_released, rated, studio_id)
+# VALUES ("Batman Begins", 2005, "PG-13", 1);
+
+# INSERT INTO movies (title, year_released, rated, studio_id)
+# VALUES ("The Dark Knight", 2008, "PG-13", 1);
+
+# INSERT INTO movies (title, year_released, rated, studio_id)
+# VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
+
+# check that we start with no movie data
+puts "movies: #{Movie.all.count}"
+# generate movie data
+new_movie = Movie.new 
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = 2005
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1
+new_movie.save
+new_movie = Movie.new 
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = 2008
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1
+new_movie.save
+new_movie = Movie.new 
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["year_released"] = 2012
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = 1
+new_movie.save
+
+# check that 3 movies were added
+puts "movies: #{Movie.all.count}"
+
+# actors data from hw 1
+# INSERT INTO actors (name) VALUES ("Christian Bale"); -- 1
+# INSERT INTO actors (name) VALUES ("Michael Caine"); -- 2
+# INSERT INTO actors (name) VALUES ("Liam Neeson");  -- 3
+# INSERT INTO actors (name) VALUES ("Katie Holmes");  -- 4
+# INSERT INTO actors (name) VALUES ("Gary Oldman");  -- 5
+# INSERT INTO actors (name) VALUES ("Heath Ledger"); -- 6
+# INSERT INTO actors (name) VALUES ("Aaron Eckhart"); -- 7
+# INSERT INTO actors (name) VALUES ("Maggie Gyllenhaal"); -- 8
+# INSERT INTO actors (name) VALUES ("Tom Hardy"); -- 9
+# INSERT INTO actors (name) VALUES ("Joseph Gordon-Levitt"); -- 10
+# INSERT INTO actors (name) VALUES ("Anne Hathaway"); -- 11
+
+# check that we start with no actor data
+puts "actors: #{Actor.all.count}"
+# generate actor data
+new_actor = Actor.new 
+new_actor["name"] = "Christian Bale"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Michael Cane"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Liam Neeson"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Katie Holmes"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Gary Oldman"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Heath Ledger"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Aaron Eckhart"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Maggie Gyllenhaal"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Tom Hardy"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Joseph Gordon-Levitt"
+new_actor.save
+new_actor = Actor.new 
+new_actor["name"] = "Anne Hathaway"
+new_actor.save
+
+# check that all actors were added - should be 11
+puts "actors: #{Actor.all.count}"
+
+# check that we start with no role data
+puts "roles: #{Role.all.count}"
+# generate role data
+
+# roles info from HW 1
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 1, "Bruce Wayne");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 2, "Alfred");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 3, "Ra's Al Ghul");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 4, "Rachel Dawes");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (1, 5, "Commissioner Gordon");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 1, "Bruce Wayne");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 6, "Joker");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 7, "Harvey Dent");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 2, "Alfred");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (2, 8, "Rachel Dawes");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 1, "Bruce Wayne");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 5, "Commissioner Gordon");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 9, "Bane");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 10, "John Blake");
+# INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 11, "Selina Kyle");
+
+new_role = Role.new 
+new_role["movie_id"] = 1
+new_role["actor_id"] = 1
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 1
+new_role["actor_id"] = 2
+new_role["character_name"] = "Alfred"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 1
+new_role["actor_id"] = 3
+new_role["character_name"] = "Ra's Al Ghul"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 1
+new_role["actor_id"] = 4
+new_role["character_name"] = "Rachel Dawes"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 1
+new_role["actor_id"] = 5
+new_role["character_name"] = "Commissioner Gordon"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 2
+new_role["actor_id"] = 1
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 2
+new_role["actor_id"] = 2
+new_role["character_name"] = "Alfred"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 2
+new_role["actor_id"] = 6
+new_role["character_name"] = "Joker"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 2
+new_role["actor_id"] = 7
+new_role["character_name"] = "Harvey Dent"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 2
+new_role["actor_id"] = 8
+new_role["character_name"] = "Rachel Dawes"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 3
+new_role["actor_id"] = 1
+new_role["character_name"] = "Bruce Wayne"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 3
+new_role["actor_id"] = 5
+new_role["character_name"] = "Commissioner Gordon"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 3
+new_role["actor_id"] = 9
+new_role["character_name"] = "Bane"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 3
+new_role["actor_id"] = 10
+new_role["character_name"] = "John Blake"
+new_role.save
+new_role = Role.new 
+new_role["movie_id"] = 3
+new_role["actor_id"] = 11
+new_role["character_name"] = "Selina Kayle"
+new_role.save
+
+# check that we roles were inserted correctly - should be 15
+puts "roles: #{Role.all.count}"
+
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
