@@ -81,7 +81,16 @@ Actor.destroy_all
 Role.destroy_all
 
 # Generate models and tables, according to the domain model.
-# TODO!
+
+# check that we start with no Studio data
+puts "studios: #{Studio.all.count}"
+# generate studio data
+new_studio = Studio.new
+new_studio["name"] = "Warner Bros."
+new_studio.save
+
+# check that studio was added
+puts "studios: #{Studio.all.count}"
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
