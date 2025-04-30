@@ -87,7 +87,7 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 
 # check that we start with no Studio data
-puts "studios: #{Studio.all.count}"
+# puts "studios: #{Studio.all.count}"
 # generate studio data
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
@@ -97,7 +97,7 @@ new_studio.save
 warner = Studio.find_by({ "name" => "Warner Bros." })
 
 # check that studio was added
-puts "studios: #{Studio.all.count}"
+# puts "studios: #{Studio.all.count}"
 
 # movie data from hw 1
 # INSERT INTO movies (title, year_released, rated, studio_id)
@@ -110,7 +110,7 @@ puts "studios: #{Studio.all.count}"
 # VALUES ("The Dark Knight Rises", 2012, "PG-13", 1);
 
 # check that we start with no movie data
-puts "movies: #{Movie.all.count}"
+# puts "movies: #{Movie.all.count}"
 # generate movie data
 new_movie = Movie.new 
 new_movie["title"] = "Batman Begins"
@@ -132,7 +132,7 @@ new_movie["studio_id"] = warner["id"]
 new_movie.save
 
 # check that 3 movies were added
-puts "movies: #{Movie.all.count}"
+# puts "movies: #{Movie.all.count}"
 
 # actors data from hw 1
 # INSERT INTO actors (name) VALUES ("Christian Bale"); -- 1
@@ -148,7 +148,7 @@ puts "movies: #{Movie.all.count}"
 # INSERT INTO actors (name) VALUES ("Anne Hathaway"); -- 11
 
 # check that we start with no actor data
-puts "actors: #{Actor.all.count}"
+# puts "actors: #{Actor.all.count}"
 # generate actor data
 new_actor = Actor.new 
 new_actor["name"] = "Christian Bale"
@@ -185,7 +185,7 @@ new_actor["name"] = "Anne Hathaway"
 new_actor.save
 
 # check that all actors were added - should be 11
-puts "actors: #{Actor.all.count}"
+# puts "actors: #{Actor.all.count}"
 
 # create movie join variables
 batman1 = Movie.find_by({ "title" => "Batman Begins" })
@@ -206,7 +206,7 @@ gord = Actor.find_by({ "name" => "Joseph Gordon-Levitt" })
 hath = Actor.find_by({ "name" => "Anne Hathaway" })
 
 # check that we start with no role data
-puts "roles: #{Role.all.count}"
+# puts "roles: #{Role.all.count}"
 # generate role data
 
 # roles info from HW 1
@@ -303,7 +303,7 @@ new_role["character_name"] = "Selina Kayle"
 new_role.save
 
 # check that we roles were inserted correctly - should be 15
-puts "roles: #{Role.all.count}"
+# puts "roles: #{Role.all.count}"
 
 # Prints a header for the movies output
 puts "Movies"
