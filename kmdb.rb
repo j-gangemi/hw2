@@ -85,7 +85,6 @@ Role.destroy_all
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
-# TODO!
 
 # check that we start with no Studio data
 puts "studios: #{Studio.all.count}"
@@ -93,6 +92,9 @@ puts "studios: #{Studio.all.count}"
 new_studio = Studio.new
 new_studio["name"] = "Warner Bros."
 new_studio.save
+
+# create join variable
+warner = Studio.find_by({ "name" => "Warner Bros." })
 
 # check that studio was added
 puts "studios: #{Studio.all.count}"
@@ -114,19 +116,19 @@ new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
 new_movie["year_released"] = 2005
 new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1
+new_movie["studio_id"] = warner["id"]
 new_movie.save
 new_movie = Movie.new 
 new_movie["title"] = "The Dark Knight"
 new_movie["year_released"] = 2008
 new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1
+new_movie["studio_id"] = warner["id"]
 new_movie.save
 new_movie = Movie.new 
 new_movie["title"] = "The Dark Knight Rises"
 new_movie["year_released"] = 2012
 new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = 1
+new_movie["studio_id"] = warner["id"]
 new_movie.save
 
 # check that 3 movies were added
@@ -152,7 +154,7 @@ new_actor = Actor.new
 new_actor["name"] = "Christian Bale"
 new_actor.save
 new_actor = Actor.new 
-new_actor["name"] = "Michael Cane"
+new_actor["name"] = "Michael Caine"
 new_actor.save
 new_actor = Actor.new 
 new_actor["name"] = "Liam Neeson"
@@ -185,6 +187,24 @@ new_actor.save
 # check that all actors were added - should be 11
 puts "actors: #{Actor.all.count}"
 
+# create movie join variables
+batman1 = Movie.find_by({ "title" => "Batman Begins" })
+batman2 = Movie.find_by({ "title" => "The Dark Knight" })
+batman3 = Movie.find_by({ "title" => "The Dark Knight Rises" })
+
+# create actor join variables using first 4 letters of last name
+bale = Actor.find_by({ "name" => "Christian Bale" })
+cain = Actor.find_by({ "name" => "Michael Caine" })
+nees = Actor.find_by({ "name" => "Liam Neeson" })
+holm = Actor.find_by({ "name" => "Katie Holmes" })
+oldm = Actor.find_by({ "name" => "Gary Oldman" })
+ledg = Actor.find_by({ "name" => "Heath Ledger" })
+eckh = Actor.find_by({ "name" => "Aaron Eckhart" })
+gyll = Actor.find_by({ "name" => "Maggie Gyllenhaal" })
+hard = Actor.find_by({ "name" => "Tom Hardy" })
+gord = Actor.find_by({ "name" => "Joseph Gordon-Levitt" })
+hath = Actor.find_by({ "name" => "Anne Hathaway" })
+
 # check that we start with no role data
 puts "roles: #{Role.all.count}"
 # generate role data
@@ -207,84 +227,83 @@ puts "roles: #{Role.all.count}"
 # INSERT INTO roles (movie_id, actor_id, character_name) VALUES (3, 11, "Selina Kyle");
 
 new_role = Role.new 
-new_role["movie_id"] = 1
-new_role["actor_id"] = 1
+new_role["movie_id"] = batman1["id"]
+new_role["actor_id"] = bale["id"]
 new_role["character_name"] = "Bruce Wayne"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 1
-new_role["actor_id"] = 2
+new_role["movie_id"] = batman1["id"]
+new_role["actor_id"] = cain["id"]
 new_role["character_name"] = "Alfred"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 1
-new_role["actor_id"] = 3
+new_role["movie_id"] = batman1["id"]
+new_role["actor_id"] = nees["id"]
 new_role["character_name"] = "Ra's Al Ghul"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 1
-new_role["actor_id"] = 4
+new_role["movie_id"] = batman1["id"]
+new_role["actor_id"] = holm["id"]
 new_role["character_name"] = "Rachel Dawes"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 1
-new_role["actor_id"] = 5
+new_role["movie_id"] = batman1["id"]
+new_role["actor_id"] = oldm["id"]
 new_role["character_name"] = "Commissioner Gordon"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 2
-new_role["actor_id"] = 1
+new_role["movie_id"] = batman2["id"]
+new_role["actor_id"] = bale["id"]
 new_role["character_name"] = "Bruce Wayne"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 2
-new_role["actor_id"] = 2
+new_role["movie_id"] = batman2["id"]
+new_role["actor_id"] = cain["id"]
 new_role["character_name"] = "Alfred"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 2
-new_role["actor_id"] = 6
+new_role["movie_id"] = batman2["id"]
+new_role["actor_id"] = ledg["id"]
 new_role["character_name"] = "Joker"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 2
-new_role["actor_id"] = 7
+new_role["movie_id"] = batman2["id"]
+new_role["actor_id"] = eckh["id"]
 new_role["character_name"] = "Harvey Dent"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 2
-new_role["actor_id"] = 8
+new_role["movie_id"] = batman2["id"]
+new_role["actor_id"] = gyll["id"]
 new_role["character_name"] = "Rachel Dawes"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 3
-new_role["actor_id"] = 1
+new_role["movie_id"] = batman3["id"]
+new_role["actor_id"] = bale["id"]
 new_role["character_name"] = "Bruce Wayne"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 3
-new_role["actor_id"] = 5
+new_role["movie_id"] = batman3["id"]
+new_role["actor_id"] = oldm["id"]
 new_role["character_name"] = "Commissioner Gordon"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 3
-new_role["actor_id"] = 9
+new_role["movie_id"] = batman3["id"]
+new_role["actor_id"] = hard["id"]
 new_role["character_name"] = "Bane"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 3
-new_role["actor_id"] = 10
+new_role["movie_id"] = batman3["id"]
+new_role["actor_id"] = gord["id"]
 new_role["character_name"] = "John Blake"
 new_role.save
 new_role = Role.new 
-new_role["movie_id"] = 3
-new_role["actor_id"] = 11
+new_role["movie_id"] = batman3["id"]
+new_role["actor_id"] = hath["id"]
 new_role["character_name"] = "Selina Kayle"
 new_role.save
 
 # check that we roles were inserted correctly - should be 15
 puts "roles: #{Role.all.count}"
-
 
 # Prints a header for the movies output
 puts "Movies"
